@@ -11,11 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity //Com essa anotacion vou dizer que os objetos do tipo genero vão ser mapeados pelo jpa, quando salvar um objeto do tipo Genre vou salvar um novo dados no banco.
+@Entity // Com essa anotacion vou dizer que os objetos do tipo genero vão ser mapeados
+		// pelo jpa, quando salvar um objeto do tipo Genre vou salvar um novo dados no
+		// banco.
 @Table(name = "tb_record")
-public class Record implements Serializable{
-	//Serializable : No java por padrão para que o objeto seja convertido em bytes e trafegar pela rede.
-	//SerialVersionUID: Numero de serie indica que é a primeira versão da classe ID. 
+public class Record implements Serializable {
+	// Serializable : No java por padrão para que o objeto seja convertido em bytes
+	// e trafegar pela rede.
+	// SerialVersionUID: Numero de serie indica que é a primeira versão da classe
+	// ID.
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,17 +28,20 @@ public class Record implements Serializable{
 	private Integer age;
 	private Instant moment;
 	
-	@ManyToOne
-	@JoinColumn(name ="game_id") //Isso faz com que os objetos se reaciona através da chave estrangeira
-	private Game game;
-	public Record() {}
 
-	public Record(Long id, String name, Integer age, Instant moment) {
+	@ManyToOne
+	@JoinColumn(name = "game_id") // Isso faz com que os objetos se reaciona através da chave estrangeira
+	private Game game;
+	public Record() {
+	}
+
+	public Record(Long id, String name, Integer age, Instant moment, Game game) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.moment = moment;
+		this.game = game;
 	}
 
 	public Long getId() {
@@ -69,6 +76,14 @@ public class Record implements Serializable{
 		this.moment = moment;
 	}
 
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,6 +108,6 @@ public class Record implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 	
 }

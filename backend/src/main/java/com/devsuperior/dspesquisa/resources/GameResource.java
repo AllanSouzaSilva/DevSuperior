@@ -10,22 +10,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dspesquisa.dto.GameDTO;
 import com.devsuperior.dspesquisa.services.GameService;
+
 @RestController
 @RequestMapping(value = "/games")
 
 public class GameResource {
-	//Responsavel por acessar os dados no banco de dados de games
-	//Rota principal do recurso
-	/*@Autowired Pré processamento que vai entregar para entregar uma instancia dogame repository
-	private GameRepository gameRepository;*/
-	
+	// Responsavel por acessar os dados no banco de dados de games
+	// Rota principal do recurso
+	/*
+	 * @Autowired Pré processamento que vai entregar para entregar uma instancia
+	 * dogame repository private GameRepository gameRepository;
+	 */
+
 	@Autowired
 	private GameService service;
-	
+
 	@GetMapping
-	public ResponseEntity<List<GameDTO>> findAll(){
-		 List<GameDTO> list = service.findAll();
+	public ResponseEntity<List<GameDTO>> findAll() {
+		List<GameDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
-		
+
 	}
 }

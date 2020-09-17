@@ -17,11 +17,13 @@ import com.devsuperior.dspesquisa.entities.enums.Platform;
 
 @Entity //Com essa anotacion vou dizer que os objetos do tipo genero vão ser mapeados pelo jpa, quando salvar um objeto do tipo Genre vou salvar um novo dados no banco.
 @Table(name = "tb_game")
-public class Game<platform> implements Serializable{
-	//Serializable : No java por padrão para que o objeto seja convertido em bytes e trafegar pela rede.
-	//SerialVersionUID: Numero de serie indica que é a primeira versão da classe ID. 
+public class Game<platform> implements Serializable {
+	// Serializable : No java por padrão para que o objeto seja convertido em bytes
+	// e trafegar pela rede.
+	// SerialVersionUID: Numero de serie indica que é a primeira versão da classe
+	// ID.
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -81,6 +83,12 @@ public class Game<platform> implements Serializable{
 
 	public void setGenre(Genre genre) {
 		this.genre = genre;
+	}
+	
+	
+
+	public void getRecords(List<Record> records) {
+		this.records = records;
 	}
 
 	@Override
