@@ -21,11 +21,13 @@ public class Game<platform> implements Serializable{
 	//Serializable : No java por padrão para que o objeto seja convertido em bytes e trafegar pela rede.
 	//SerialVersionUID: Numero de serie indica que é a primeira versão da classe ID. 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
 	private Platform platform;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "genre_id") /*Isso faz com que os objetos se reaciona através da chave estrangeira
@@ -35,6 +37,7 @@ public class Game<platform> implements Serializable{
 		
 	
 	//Associação com varios record por isso a implementação em lista Record
+	
 	@ManyToMany(mappedBy = "game")
 	private List<Record> records = new ArrayList<>();
 	
