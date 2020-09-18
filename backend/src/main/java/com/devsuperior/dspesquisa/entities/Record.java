@@ -29,12 +29,14 @@ public class Record implements Serializable {
 	private Instant moment;
 	
 
+	@SuppressWarnings("rawtypes")
 	@ManyToOne
 	@JoinColumn(name = "game_id") // Isso faz com que os objetos se reaciona através da chave estrangeira
 	private Game game;
 	public Record() {
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Record(Long id, String name, Integer age, Instant moment, Game game) {
 		super();
 		this.id = id;
@@ -76,11 +78,12 @@ public class Record implements Serializable {
 		this.moment = moment;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public Game getGame() {
 		return game;
 	}
 
-	public void setGame(Game game) {
+	public void setGame(@SuppressWarnings("rawtypes") Game game) {
 		this.game = game;
 	}
 

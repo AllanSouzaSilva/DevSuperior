@@ -25,6 +25,7 @@ public class Genre implements Serializable{
 	
 	
 	//Associação para uma lista do tipo games, e o nome dessa lista será Game.
+	@SuppressWarnings("rawtypes")
 	@OneToMany(mappedBy = "genre")
 	private List<Game> games = new ArrayList<>();
 	
@@ -64,6 +65,7 @@ public class Genre implements Serializable{
 	}
 	
 	
+	@SuppressWarnings("rawtypes")
 	public List<Game> getGames() {
 		return games;
 	}

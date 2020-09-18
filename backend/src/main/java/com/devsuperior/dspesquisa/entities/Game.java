@@ -111,6 +111,7 @@ public class Game<platform> implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+		@SuppressWarnings("rawtypes")
 		Game other = (Game) obj;
 		if (id == null) {
 			if (other.id != null)
