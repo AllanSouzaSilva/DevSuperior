@@ -6,7 +6,6 @@ import Chart from 'react-apexcharts';
 import axios from 'axios';
 import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers';
 
-import Axios from 'axios';
 type PieChartData = {
     labels: string[];
     series:number[];
@@ -21,7 +20,7 @@ const initialPieData = {
     series: []
 }
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://sds1-allan.herokuapp.com';
 
 const Charts = () => {
 
