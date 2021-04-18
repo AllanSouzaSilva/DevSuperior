@@ -26,9 +26,8 @@ A aplicação consiste em uma pesquisa de preferência de games, onde os dados s
 ## Front end
 - HTML / CSS / JS / TypeScript
 - ReactJS
-- React Native
 - Apex Charts
-- Expo
+
 ## Implantação em produção
 - Back end: Heroku
 - Front end web: Netlify
